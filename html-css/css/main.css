@@ -84,5 +84,35 @@ input:focus {
     width: 70%;
   }
 }
+.navbar {
+  width: 100%;
+  margin-top: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.navbar .logo {
+  margin-left: 20%;
+}
+.navbar .profile {
+  display: flex;
+  flex-direction: row;
+  margin-right: 20%;
+}
+
+.home_container .articles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-left: 15%;
+  margin-bottom: 30px;
+}
+
+.main-article {
+  width: 313px;
+  height: 318px;
+  border: 1px solid #000000;
+}
 
 /*# sourceMappingURL=main.css.map */
