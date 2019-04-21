@@ -1,0 +1,47 @@
+.container {
+  width: 100%;
+  margin-top: 20%;
+  height: 100%;
+  @include row {
+    align-content: center;
+    justify-content: center;
+  }
+  .card {
+    @include column {
+      justify-content: center;
+    }
+    border: 1px solid #000000;
+    border-radius: 20px;
+    div {
+      margin-left: 10%;
+      margin-top: 1.5%;
+    }
+    button {
+      margin-top: 8%;
+      margin-left: 10%;
+      &:hover {
+        box-shadow: none;
+        margin-bottom: -4px;
+      }
+    }
+  }
+}
+
+@media (min-width: 371px) {
+  .container {
+    .card {
+      width: 493px;
+      border: 1px solid #000000;
+      height: 425px;
+    }
+  }
+}
+@media (max-width: 371px) {
+  .container {
+    .card {
+      width: 100%;
+      margin-top: 30%;
+      border: none;
+    }
+  }
+}
