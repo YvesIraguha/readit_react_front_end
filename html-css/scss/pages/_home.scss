@@ -1,5 +1,6 @@
 .navbar {
   width: 100%;
+
   margin-top: 2%;
   @include row {
     justify-content: space-between;
@@ -14,12 +15,13 @@
 }
 
 .home_container {
+  width: 80%;
+  margin: auto;
   .articles {
     @include row {
       flex-wrap: wrap;
       justify-content: space-evenly;
     }
-    margin-right: 20%;
     margin-bottom: 30px;
   }
 }
