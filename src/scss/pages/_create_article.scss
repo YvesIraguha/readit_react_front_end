@@ -1,0 +1,17 @@
+.create_article {
+  width: 60%;
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  .create_article {
+    width: 60%;
+  }
+}
+
+@media (max-width: 767px) {
+  .create_article {
+    width: 80%;
+    font-size: 18px;
+  }
+}

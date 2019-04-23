@@ -1,0 +1,30 @@
+.article {
+  margin: auto;
+  font-size: $font-size;
+  margin-top: 3%;
+  .article_comments {
+    .comment,
+    .new_comment {
+      .avatar {
+        @include row;
+        .icon {
+          margin-top: 2%;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .article {
+    width: 60%;
+  }
+}
+
+@media (max-width: 767px) {
+  .article {
+    width: 80%;
+    font-size: 18px;
+  }
+}

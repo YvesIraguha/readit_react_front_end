@@ -1,0 +1,27 @@
+.navbar {
+  width: 100%;
+
+  margin-top: 2%;
+  @include row {
+    justify-content: space-between;
+  }
+  .logo {
+    margin-left: 20%;
+  }
+  .profile {
+    @include row;
+    margin-right: 20%;
+  }
+}
+
+.home_container {
+  width: 80%;
+  margin: auto;
+  .articles {
+    @include row {
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+    margin-bottom: 30px;
+  }
+}

@@ -1,0 +1,27 @@
+input {
+  height: 30px;
+  margin-left: 10px;
+  border: none;
+  border-bottom: 2px solid #000;
+  &::placeholder {
+    font-size: $font-size;
+    font-weight: lighter;
+    margin-left: 10px;
+  }
+  &:focus {
+    outline: none;
+    font-size: $font-size;
+  }
+}
+
+@media (min-width: 371px) {
+  input {
+    width: 255px;
+  }
+}
+
+@media (max-width: 371px) {
+  input {
+    width: 70%;
+  }
+}

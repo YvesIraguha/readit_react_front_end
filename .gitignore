@@ -1,0 +1,5 @@
+node_modules/
+.env 
+./css/main.css.map
+yarn.lock 
+yarn.*

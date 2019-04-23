@@ -8,7 +8,7 @@
 }
 .btn:hover {
   box-shadow: none;
-  margin-bottom: -4px;
+  margin-top: 4px;
 }
 
 .container {
@@ -34,6 +34,9 @@
 .container .card button {
   margin-top: 8%;
   margin-left: 10%;
+}
+.container .card button:hover {
+  margin-bottom: -4px;
 }
 
 @media (min-width: 371px) {

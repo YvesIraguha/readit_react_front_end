@@ -1,0 +1,43 @@
+{
+  "name": "readit_frontend",
+  "version": "1.0.0",
+  "description": "Front application for ReadIt back-end build using react and webpack from scratch",
+  "main": "index.js",
+  "repository": "https://github.com/YvesIraguha/readit_react_front_end.git",
+  "author": "YvesIraguha <iraguhaivos@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "webpack": "babel-node ./node_modules/webpack/bin/webpack",
+    "start": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server --open"
+  },
+  "dependencies": {
+    "react": "16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "5.0.0",
+    "redux-devtools-extension": "^2.13.8"
+  },
+  "devDependencies": {
+    "@babel/core": "7.4.3",
+    "@babel/node": "7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/preset-env": "7.4.3",
+    "@babel/preset-react": "7.0.0",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.1",
+    "eslint": "5.16.0",
+    "eslint-plugin-prettier": "3.0.1",
+    "eslint-plugin-react": "7.12.4",
+    "file-loader": "^3.0.1",
+    "html-webpack-plugin": "3.2.0",
+    "node-sass": "^4.11.0",
+    "path": "0.12.7",
+    "react-redux": "7.0.2",
+    "redux": "4.0.1",
+    "redux-thunk": "^2.3.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "4.30.0",
+    "webpack-cli": "3.3.1",
+    "webpack-dev-server": "3.3.1"
+  }
+}
