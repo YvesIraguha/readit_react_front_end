@@ -13,4 +13,4 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - .export CC_TEST_REPORTER_ID=<d996233c1733a94b6bce8a9f0ed086e2a4e7ab1aa375dac3fab25cff67ded9ed> cc-test-reporter after-build --exit-code $?
