@@ -5,7 +5,7 @@ import store from './redux/store';
 import { Provider } from 'react-redux';
 import './scss/main.scss';
 import Button from './pages/index';
-let HelloWorld = () => <h1>Hello there world!</h1>;
+import { HelloWorld } from './pages/index';
 let App = () => (
   <Provider store={store}>
     <Router>
