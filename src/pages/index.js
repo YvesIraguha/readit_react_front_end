@@ -1,17 +1,18 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { trialMethod } from '../redux/actions/index';
-export const HelloWorld = () => <h1>Hello there world!</h1>;
-const Button = props => (
-  <button className="btn" onClick={e => props.firstMethod()}>
-    Click!
-  </button>
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './Home';
+import ReadArticle from './ReadArticle';
+import SignUp from './SignUp';
+import SignIn from './SignIn';
+import CreateArticle from './CreateArticle';
+export default () => (
+  <Router>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/articles/new" component={CreateArticle} />
+      <Route path="/articles/:slug" component={ReadArticle} />
+      <Route path="/sign_up" component={SignUp} />
+      <Route path="/sign_in" component={SignIn} />
+    </Switch>
+  </Router>
 );
-const mapDispatchToProps = dispatch => ({
-  firstMethod: () => dispatch(trialMethod())
-});
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(Button);
