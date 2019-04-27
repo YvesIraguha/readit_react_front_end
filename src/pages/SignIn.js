@@ -1,6 +1,25 @@
 import React, { Component } from 'react';
+import { logIn } from '../redux/actions/loginActions';
+import Input from '../components/common/Input';
+import { connect } from 'react-redux';
+const mapDispatchToProps = dispatch => ({
+  signIn: user => dispatch(logIn(user))
+});
+class SignIn extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-export default class SignIn extends Component {
+  onInputChange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  }
+  submitLoginCredentials() {
+    const { email, password } = this.state;
+    const { signIn } = this.props;
+    signIn({ email, password });
+  }
   render() {
     return (
       <div>
@@ -12,7 +31,12 @@ export default class SignIn extends Component {
                 alt="Email"
                 className="icon"
               />
-              <input type="email" placeholder="Email ..." />
+              <Input
+                type="email"
+                name="email"
+                placeholder="Email ..."
+                onChange={e => this.onInputChange(e)}
+              />
             </div>
             <div className="password sign_up">
               <img
@@ -20,12 +44,27 @@ export default class SignIn extends Component {
                 alt="password"
                 className="icon"
               />
-              <input type="password" placeholder="Password ..." />
+              <Input
+                type="password"
+                name="password"
+                placeholder="Password ..."
+                onChange={e => this.onInputChange(e)}
+              />
             </div>
-            <button className="btn">Sign In</button>
+            <button
+              className="btn"
+              onClick={() => this.submitLoginCredentials()}
+            >
+              Sign In
+            </button>
           </div>
         </div>
       </div>
     );
   }
 }
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(SignIn);

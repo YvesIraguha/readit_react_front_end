@@ -1,6 +1,6 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-
+import Dotenv from 'dotenv-webpack';
 module.exports = {
   entry: path.join(__dirname, 'src/index.js'),
   output: {
@@ -36,6 +36,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'index.html')
-    })
+    }),
+    new Dotenv()
   ]
 };

@@ -1,3 +1,4 @@
+import http from '../../utils/axios';
 import {
   LOGGED_IN,
   SUBMITTING_CREDENTIALS,
@@ -9,6 +10,11 @@ import {
 export const logIn = user => async dispatch => {
   try {
     dispatch({ type: SUBMITTING_CREDENTIALS });
+    const response = await http.post('/auth/login', {
+      ...user
+    });
+    await localStorage.setItem('token', response.data.token);
+    dispatch({ type: LOGGED_IN, payload: response.data });
   } catch (error) {
     const { message } = error.response.data;
     dispatch({ type: LOGGING_FAILURE, payload: message });

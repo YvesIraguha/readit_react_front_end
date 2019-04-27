@@ -8,6 +8,7 @@ import {
   FETCHING_ARTICLE,
   ARTICLE_DELETED,
   ARTICLE_FOUND,
+  ARTICLES_FOUND,
   ARTICLE_UPDATED,
   ARTICLE_ERROR
 } from '../actionTypes';
@@ -34,6 +35,12 @@ export const articleReducer = (state = initialState, action) => {
       return {
         ...state,
         article: action.payload,
+        isFetching: false
+      };
+    case ARTICLES_FOUND:
+      return {
+        ...state,
+        articles: action.payload,
         isFetching: false
       };
     case ARTICLE_DELETED:

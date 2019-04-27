@@ -1,11 +1,10 @@
 import axios from 'axios';
 
-const baseURL = process.env.BASE_URL;
 const token = localStorage.getItem('token');
-export default () =>
-  axios.create({
-    baseURL,
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-  });
+const http = axios.create({
+  baseURL: process.env.BASE_URL,
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+});
+export default http;
