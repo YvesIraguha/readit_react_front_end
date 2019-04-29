@@ -1,7 +1,3 @@
-const initialState = {
-  isSubmitting: false
-};
-
 import {
   LOGGED_IN,
   SUBMITTING_CREDENTIALS,
@@ -9,12 +5,17 @@ import {
   LOGGING_OUT,
   LOGOUT
 } from '../actionTypes';
+const initialState = {
+  isSubmitting: false
+};
+
 export const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGGED_IN:
       return {
         ...state,
-        token: action.payload
+        token: action.payload,
+        isSubmitting: false
       };
     case SUBMITTING_CREDENTIALS:
       return {

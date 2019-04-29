@@ -1,11 +1,11 @@
-const initialState = {
-  isSubmitting: false
-};
 import {
   SIGNED_UP,
   SUBMITTING_CREDENTIALS,
   SIGN_UP_FAILURE
 } from '../actionTypes';
+const initialState = {
+  isSubmitting: false
+};
 export const signUpReducer = (state = initialState, action) => {
   switch (action.type) {
     case SIGNED_UP:
