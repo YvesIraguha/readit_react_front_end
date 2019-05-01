@@ -4,7 +4,7 @@ import {
   LOGGING_FAILURE,
   LOGGING_OUT,
   LOGOUT
-} from '../actionTypes';
+} from "../actionTypes";
 const initialState = {
   isSubmitting: false
 };

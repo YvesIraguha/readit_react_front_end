@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { logIn } from '../redux/actions/loginActions';
-import Input from '../components/common/Input';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { logIn } from "../redux/actions/loginActions";
+import Input from "../components/common/Input";
+import { connect } from "react-redux";
 const mapDispatchToProps = dispatch => ({
   signIn: user => dispatch(logIn(user))
 });
@@ -27,7 +27,7 @@ class SignIn extends Component {
           <div className="card">
             <div className="email sign_up">
               <img
-                src={require('../assets/icons/email.svg')}
+                src={require("../assets/icons/email.svg")}
                 alt="Email"
                 className="icon"
               />
@@ -40,7 +40,7 @@ class SignIn extends Component {
             </div>
             <div className="password sign_up">
               <img
-                src={require('../assets/icons/locked.svg')}
+                src={require("../assets/icons/locked.svg")}
                 alt="password"
                 className="icon"
               />

@@ -1,3 +1,3 @@
-test('should return true', () => {
+test("should return true", () => {
   expect(true).toBe(true);
 });

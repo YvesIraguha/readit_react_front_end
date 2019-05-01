@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import ReactHtmlParser from 'react-html-parser';
-import { withRouter } from 'react-router-dom';
+import React, { Component } from "react";
+import ReactHtmlParser from "react-html-parser";
+import { withRouter } from "react-router-dom";
 class ArticleCard extends Component {
   constructor(props) {
     super(props);

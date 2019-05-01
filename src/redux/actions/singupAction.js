@@ -1,16 +1,16 @@
-import http from '../../utils/axios';
+import http from "../../utils/axios";
 
-import '@babel/polyfill';
+import "@babel/polyfill";
 import {
   SUBMITTING_CREDENTIALS,
   SIGNED_UP,
   SIGN_UP_FAILURE
-} from '../actionTypes';
+} from "../actionTypes";
 
 export const signUp = user => async dispatch => {
   try {
     dispatch({ type: SUBMITTING_CREDENTIALS });
-    const response = await http.post('/users', {
+    const response = await http.post("/users", {
       ...user
     });
 

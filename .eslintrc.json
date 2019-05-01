@@ -2,9 +2,10 @@
   "env": {
     "browser": true,
     "es6": true,
+    "jest": true,
     "node": true
   },
-  "extends": "eslint:recommended",
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -16,8 +17,76 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": ["react", "prettier"],
   "rules": {
-    "no-unused-vars": 0
+    "prettier/prettier": "error",
+    "newlines-between": "always",
+    "react/prefer-stateless-function": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "quotes": [
+      "error",
+      "double",
+      {
+        "allowTemplateLiterals": true
+      }
+    ],
+    "allowTemplateLiterals": true,
+    "parserOptions": {
+      "allowImportExportEverywhere": true,
+      "sourceType": "module"
+    },
+    "eol-last": ["error", "always"],
+    " global-require": "off",
+    "import/prefer-default-export": "on",
+    "import/resolver": {
+      "node": {
+        "extensions": [".js"]
+      }
+    },
+    "one-var": 0,
+    "one-var-declaration-per-line": 0,
+    "new-cap": 0,
+    "consistent-return": 0,
+    "no-param-reassign": 0,
+    "comma-dangle": 0,
+    "global-require": "off",
+    "no-named-as-default": "off",
+    "arrow-body-style": ["error", "as-needed"],
+    "import/no-dynamic-require": "off",
+    "no-shadow": [
+      "error",
+      {
+        "hoist": "functions"
+      }
+    ],
+    "curly": ["error", "multi-line"],
+
+    "import/no-named-as-default": "off",
+    "valid-jsdoc": [
+      "error",
+      {
+        "requireReturn": true,
+        "requireReturnType": true,
+        "requireParamDescription": false,
+        "requireReturnDescription": true
+      }
+    ],
+    "require-jsdoc": [
+      "error",
+      {
+        "require": {
+          "FunctionDeclaration": true,
+          "MethodDefinition": false,
+          "ClassDeclaration": false
+        }
+      }
+    ]
   }
 }

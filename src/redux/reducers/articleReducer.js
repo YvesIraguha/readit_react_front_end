@@ -11,7 +11,7 @@ import {
   ARTICLES_FOUND,
   ARTICLE_UPDATED,
   ARTICLE_ERROR
-} from '../actionTypes';
+} from "../actionTypes";
 export const articleReducer = (state = initialState, action) => {
   switch (action.type) {
     case NEW_ARTICLE:

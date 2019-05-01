@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 export default () => (
   <section className="navbar">
     <div className="logo">
       <img
-        src={require('../../assets/icons/open-book.svg')}
+        src={require("../../assets/icons/open-book.svg")}
         alt="Logo"
         className="icon"
       />
@@ -12,7 +12,7 @@ export default () => (
     <div className="profile">
       <div className="avatar">
         <img
-          src={require('../../assets/images/user.png')}
+          src={require("../../assets/images/user.png")}
           alt="Profile"
           className="icon"
         />

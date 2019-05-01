@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import NavBar from '../components/common/NavBar';
+import React, { Component } from "react";
+import NavBar from "../components/common/NavBar";
 import {
   fetchingArticle,
   deleteArticle,
   updatedArticle
-} from '../redux/actions/createArticleAction';
-import { connect } from 'react-redux';
-import ReactHtmlParser from 'react-html-parser';
+} from "../redux/actions/createArticleAction";
+import { connect } from "react-redux";
+import ReactHtmlParser from "react-html-parser";
 
 class ReadArticle extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      slug: '',
+      slug: "",
       article: {
-        title: '',
-        content: ''
+        title: "",
+        content: ""
       }
     };
   }
@@ -54,7 +54,7 @@ class ReadArticle extends Component {
             <div className="new_comment">
               <div className="avatar">
                 <img
-                  src={require('../assets/images/user.png')}
+                  src={require("../assets/images/user.png")}
                   alt="User"
                   className="icon"
                 />
@@ -69,7 +69,7 @@ class ReadArticle extends Component {
             <div className="comment">
               <div className="avatar">
                 <img
-                  src={require('../assets/images/user.png')}
+                  src={require("../assets/images/user.png")}
                   alt="user"
                   className="icon"
                 />

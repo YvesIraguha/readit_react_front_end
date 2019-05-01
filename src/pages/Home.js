@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import NavBar from '../components/common/NavBar';
-import { fetchAllArticles } from '../redux/actions/createArticleAction';
-import ArticleCard from '../components/common/ArticleCard';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import NavBar from "../components/common/NavBar";
+import { fetchAllArticles } from "../redux/actions/createArticleAction";
+import ArticleCard from "../components/common/ArticleCard";
+import { connect } from "react-redux";
 
 class Home extends Component {
   constructor(props) {

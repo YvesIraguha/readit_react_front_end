@@ -2,7 +2,7 @@ import {
   SIGNED_UP,
   SUBMITTING_CREDENTIALS,
   SIGN_UP_FAILURE
-} from '../actionTypes';
+} from "../actionTypes";
 const initialState = {
   isSubmitting: false
 };
