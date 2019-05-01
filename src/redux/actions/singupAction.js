@@ -1,4 +1,5 @@
 import http from '../../utils/axios';
+
 import '@babel/polyfill';
 import {
   SUBMITTING_CREDENTIALS,
@@ -12,6 +13,7 @@ export const signUp = user => async dispatch => {
     const response = await http.post('/users', {
       ...user
     });
+
     dispatch({ type: SIGNED_UP, payload: response.data });
   } catch (error) {
     const { message } = error.response.data;
