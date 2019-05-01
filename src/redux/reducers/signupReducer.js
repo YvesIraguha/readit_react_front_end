@@ -11,7 +11,8 @@ export const signUpReducer = (state = initialState, action) => {
     case SIGNED_UP:
       return {
         ...state,
-        token: action.payload
+        ...action.payload,
+        isSubmitting: false
       };
     case SUBMITTING_CREDENTIALS:
       return {

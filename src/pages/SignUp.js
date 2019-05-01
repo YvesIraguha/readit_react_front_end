@@ -1,15 +1,20 @@
 import React, { Component } from "react";
 import Input from "../components/common/Input";
 import { signUp } from "../redux/actions/singupAction";
+import Validator from "../utils/validator";
 import { connect } from "react-redux";
 export const mapDispatchToProps = dispatch => ({
   sendSignUpInfo: user => dispatch(signUp(user))
 });
 class SignUp extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  state = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    error: "",
+    isSubmitting: this.props.isSubmitting
+  };
 
   onInputChange(event) {
     const { name, value } = event.target;
@@ -19,53 +24,73 @@ class SignUp extends Component {
   submitSignUpCredentials() {
     const { email, password, lastName, firstName } = this.state;
     const { sendSignUpInfo } = this.props;
-    sendSignUpInfo({ email, password, lastName, firstName });
+    const error = Validator.signUp({ firstName, lastName, email, password });
+    if (error) {
+      return this.displayError(error);
+    }
+    sendSignUpInfo({ firstName, lastName, email, password });
+  }
+  displayError(error) {
+    this.setState({ error });
+    setTimeout(() => {
+      this.setState({ error: "" });
+    }, 3000);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.user) {
+      this.props.history.push("/");
+    } else {
+      return this.displayError("The email is already taken");
+    }
   }
   render() {
+    const { email, password, lastName, firstName, error } = this.state;
     return (
       <div>
+        {error.length > 12 ? <div className="error">{error}</div> : false}
+
         <div className="container">
           <div className="card">
-            <div className="email sign_up">
-              <img
-                src={require("../assets/icons/email.svg")}
-                alt="Email"
-                className="icon"
-              />
+            <div>
               <Input
-                type="email"
-                name="email"
-                placeholder="Email ..."
-                onChange={e => this.onInputChange(e)}
-              />
-              <Input
-                type="email"
-                name="lastName"
-                placeholder="Last name ..."
-                onChange={e => this.onInputChange(e)}
-              />
-              <Input
-                type="email"
+                type="name"
                 name="firstName"
+                value={firstName}
                 placeholder="first name ..."
                 onChange={e => this.onInputChange(e)}
               />
             </div>
-            <div className="password sign_up">
-              <img
-                src={require("../assets/icons/locked.svg")}
-                alt="password"
-                className="icon"
+            <div>
+              <Input
+                type="name"
+                name="lastName"
+                value={lastName}
+                placeholder="Last name ..."
+                onChange={e => this.onInputChange(e)}
               />
+            </div>
+            <div className="email sign_up">
+              <Input
+                type="email"
+                name="email"
+                value={email}
+                placeholder="Email ..."
+                onChange={e => this.onInputChange(e)}
+              />
+            </div>
+            <div className="password sign_up">
               <Input
                 type="password"
                 name="password"
+                value={password}
                 placeholder="Password ..."
                 onChange={e => this.onInputChange(e)}
               />
             </div>
             <button
               className="btn"
+              disabled={this.isSubmitting}
               onClick={() => this.submitSignUpCredentials()}
             >
               Sign Up
@@ -77,7 +102,10 @@ class SignUp extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  ...state.signUp
+});
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(SignUp);

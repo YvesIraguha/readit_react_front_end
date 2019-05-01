@@ -1,6 +1,7 @@
 import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import Dotenv from "dotenv-webpack";
+import { empty } from "rxjs";
 module.exports = {
   entry: path.join(__dirname, "src/index.js"),
   output: {
