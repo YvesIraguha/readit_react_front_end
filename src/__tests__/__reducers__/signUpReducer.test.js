@@ -8,10 +8,15 @@ import { signUpReducer } from "../../redux/reducers/signupReducer";
 describe("SignUp reducers ", () => {
   test("should return signed up successfully", () => {
     expect(
-      signUpReducer(undefined, { type: SIGNED_UP, payload: "hello world" })
+      signUpReducer(undefined, {
+        type: SIGNED_UP,
+        payload: {
+          user: "hello world"
+        }
+      })
     ).toEqual({
       isSubmitting: false,
-      token: "hello world"
+      user: "hello world"
     });
   });
   test("should return sign up failure", () => {
