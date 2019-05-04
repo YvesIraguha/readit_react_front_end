@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Front application for ReadIt back-end build using react and webpack from scratch",
   "main": "index.js",
+  "homepage": "https://github.com/YvesIraguha/readit_react_front_end",
   "repository": "https://github.com/YvesIraguha/readit_react_front_end.git",
   "author": "YvesIraguha <iraguhaivos@gmail.com>",
   "license": "MIT",
@@ -19,16 +20,19 @@
     }
   },
   "scripts": {
-    "webpack": "babel-node ./node_modules/webpack/bin/webpack",
+    "build": "babel-node ./node_modules/webpack/bin/webpack",
     "dev:server": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server --open",
     "start": "export NODE_ENV=production && babel-node  ./node_modules/webpack-dev-server/bin/webpack-dev-server",
     "test": "export NODE_ENV=test && jest --coverage",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d dist",
     "test:u": "jest --coverage -u",
     "coveralls": "cat /coverage/lcov.info | coveralls"
   },
   "dependencies": {
     "axios": "0.18.0",
     "dotenv": "8.0.0",
+    "gh-pages": "^2.0.1",
     "react": "16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "5.0.0",
