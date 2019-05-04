@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const token = localStorage.getItem("token");
-const baseURL = "http://localhost:5070/api/v1";
+const baseURL = process.env.BASE_URL;
 
 const http = axios.create({
   baseURL,
