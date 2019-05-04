@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import ReactHtmlParser from "react-html-parser";
 import { withRouter } from "react-router-dom";
 export class ArticleCard extends Component {
@@ -13,12 +14,12 @@ export class ArticleCard extends Component {
   }
   render() {
     const { id, title, content } = this.state;
+    const {
+      history: { push }
+    } = this.props;
 
     return (
-      <div
-        className="main-article"
-        onClick={() => this.props.history.push(`/articles/${id}`)}
-      >
+      <div className="main-article" onClick={() => push(`/articles/${id}`)}>
         <h1>{title}</h1>
         {ReactHtmlParser(content)}
       </div>
@@ -26,4 +27,10 @@ export class ArticleCard extends Component {
   }
 }
 
+ArticleCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  history: PropTypes.shape({}).isRequired
+};
 export default withRouter(ArticleCard);

@@ -40,5 +40,8 @@ module.exports = {
     new Dotenv({
       path: ".env"
     })
-  ]
+  ],
+  node: {
+    fs: "empty"
+  }
 };

@@ -7,7 +7,7 @@ import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 dotenv.config();
 const BASE_URL = process.env.BASE_URL;
-
+console.log("there it is in tests", BASE_URL);
 const middleWares = [thunk];
 const mockStore = configureMockStore(middleWares);
 

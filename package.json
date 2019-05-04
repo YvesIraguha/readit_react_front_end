@@ -26,7 +26,8 @@
     "coveralls": "cat /coverage/lcov.info | coveralls"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "0.18.0",
+    "dotenv": "8.0.0",
     "react": "16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "5.0.0",

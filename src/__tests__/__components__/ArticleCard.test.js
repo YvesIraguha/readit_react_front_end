@@ -6,7 +6,7 @@ const props = {
   history: {
     push: jest.fn()
   },
-  id: "helloWorld",
+  id: 23,
   title: "hello world",
   content: "hello world"
 };
@@ -18,6 +18,6 @@ describe("article card", () => {
   test("should redirect to the article route on click", () => {
     const wrapper = shallow(<ArticleCard {...props} />);
     wrapper.find(".main-article").simulate("click");
-    expect(props.history.push).toHaveBeenCalledWith("/articles/helloWorld");
+    expect(props.history.push).toHaveBeenCalledWith("/articles/23");
   });
 });
