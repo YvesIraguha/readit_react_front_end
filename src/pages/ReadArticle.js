@@ -1,15 +1,11 @@
 /* eslint-disable no-shadow */
 import React, { Component } from "react";
 import NavBar from "../components/common/NavBar";
-import {
-  fetchingArticle,
-  deleteArticle,
-  updatedArticle
-} from "../redux/actions/createArticleAction";
+import { fetchingArticle } from "../redux/actions/createArticleAction";
 import { connect } from "react-redux";
 import ReactHtmlParser from "react-html-parser";
 
-class ReadArticle extends Component {
+export class ReadArticle extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +16,7 @@ class ReadArticle extends Component {
       }
     };
   }
-  componentDidMount() {
+  componentDidMount = () => {
     const {
       fetchingArticle,
       match: {
@@ -29,12 +25,12 @@ class ReadArticle extends Component {
     } = this.props;
     this.setState({ slug });
     fetchingArticle(slug);
-  }
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.article.article.post !== this.state.article) {
+  };
+  componentWillReceiveProps = nextProps => {
+    if (nextProps.article !== this.props.article) {
       this.setState({ article: { ...nextProps.article.article.post } });
     }
-  }
+  };
 
   render() {
     const {
@@ -48,17 +44,16 @@ class ReadArticle extends Component {
           <div className="article_text">
             <h1>{title}</h1>
             <div>{ReactHtmlParser(content)}</div>
-            {/* <button onClick={() => deleteArticle(slug)}>Delete</button> */}
           </div>
         </div>
       </div>
     );
   }
 }
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   article: state.article
 });
 export default connect(
   mapStateToProps,
-  { fetchingArticle, deleteArticle }
+  { fetchingArticle }
 )(ReadArticle);

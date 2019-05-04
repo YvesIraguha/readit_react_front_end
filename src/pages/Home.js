@@ -4,22 +4,22 @@ import { fetchAllArticles } from "../redux/actions/createArticleAction";
 import ArticleCard from "../components/common/ArticleCard";
 import { connect } from "react-redux";
 
-class Home extends Component {
+export class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       articles: []
     };
   }
-  componentDidMount() {
+  componentDidMount = () => {
     const { fetchAllArticles } = this.props;
     fetchAllArticles();
-  }
-  componentWillReceiveProps(nextProps) {
+  };
+  componentWillReceiveProps = nextProps => {
     if (nextProps.articles !== this.state.articles) {
       this.setState({ articles: nextProps.articles });
     }
-  }
+  };
   render() {
     const { articles } = this.state;
     return (

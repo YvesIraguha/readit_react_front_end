@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import Input from "../components/common/Input";
-import { signUp } from "../redux/actions/singupAction";
+import { signUp as sendSignUpInfo } from "../redux/actions/singupAction";
 import Validator from "../utils/validator";
 import { connect } from "react-redux";
-export const mapDispatchToProps = dispatch => ({
-  sendSignUpInfo: user => dispatch(signUp(user))
-});
-class SignUp extends Component {
+
+export class SignUp extends Component {
   state = {
     firstName: "",
     lastName: "",
@@ -16,12 +14,12 @@ class SignUp extends Component {
     isSubmitting: this.props.isSubmitting
   };
 
-  onInputChange(event) {
+  onInputChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
-  }
+  };
 
-  submitSignUpCredentials() {
+  submitSignUpCredentials = () => {
     const { email, password, lastName, firstName } = this.state;
     const { sendSignUpInfo } = this.props;
     const error = Validator.signUp({ firstName, lastName, email, password });
@@ -29,26 +27,26 @@ class SignUp extends Component {
       return this.displayError(error);
     }
     sendSignUpInfo({ firstName, lastName, email, password });
-  }
-  displayError(error) {
+  };
+  displayError = error => {
     this.setState({ error });
     setTimeout(() => {
       this.setState({ error: "" });
     }, 3000);
-  }
+  };
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.user) {
       this.props.history.push("/");
     } else {
       return this.displayError("The email is already taken");
     }
-  }
+  };
   render() {
     const { email, password, lastName, firstName, error } = this.state;
     return (
       <div>
-        {error.length > 12 ? <div className="error">{error}</div> : false}
+        {error.length > 5 ? <div className="error">{error}</div> : false}
 
         <div className="container">
           <div className="card">
@@ -102,10 +100,10 @@ class SignUp extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   ...state.signUp
 });
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  { sendSignUpInfo }
 )(SignUp);

@@ -14,13 +14,15 @@
       "<rootDir>/setupTest.js"
     ],
     "moduleNameMapper": {
-      "^.+\\.(css||less|scss)$": "identity-obj-proxy"
+      "\\.(css|less|scss)$": "<rootDir>/src/__mocks__/styleMock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/fileMock.js"
     }
   },
   "scripts": {
     "webpack": "babel-node ./node_modules/webpack/bin/webpack",
     "start": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server --open",
     "test": "export NODE_ENV=test && jest --coverage",
+    "test:u": "jest --coverage -u",
     "coveralls": "cat /coverage/lcov.info | coveralls"
   },
   "dependencies": {

@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import { logIn } from "../redux/actions/loginActions";
+import { logIn as signIn } from "../redux/actions/loginActions";
 import Input from "../components/common/Input";
 import Validator from "../utils/validator";
 import { connect } from "react-redux";
-const mapDispatchToProps = dispatch => ({
-  signIn: user => dispatch(logIn(user))
-});
-class SignIn extends Component {
+
+export class SignIn extends Component {
   state = {
     email: "",
     password: "",
@@ -42,11 +40,6 @@ class SignIn extends Component {
         <div className="container">
           <div className="card">
             <div className="email sign_up">
-              <img
-                src={require("../assets/icons/email.svg")}
-                alt="Email"
-                className="icon"
-              />
               <Input
                 type="email"
                 name="email"
@@ -56,11 +49,6 @@ class SignIn extends Component {
               />
             </div>
             <div className="password sign_up">
-              <img
-                src={require("../assets/icons/locked.svg")}
-                alt="password"
-                className="icon"
-              />
               <Input
                 type="password"
                 name="password"
@@ -84,5 +72,5 @@ class SignIn extends Component {
 
 export default connect(
   null,
-  mapDispatchToProps
+  { signIn }
 )(SignIn);

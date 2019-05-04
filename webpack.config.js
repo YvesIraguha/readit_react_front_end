@@ -1,7 +1,6 @@
 import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import Dotenv from "dotenv-webpack";
-import { empty } from "rxjs";
 module.exports = {
   entry: path.join(__dirname, "src/index.js"),
   output: {
@@ -30,7 +29,7 @@ module.exports = {
       },
       {
         test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
-        loaders: ["file-loader"]
+        use: ["file-loader"]
       }
     ]
   },
