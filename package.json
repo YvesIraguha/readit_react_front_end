@@ -22,7 +22,7 @@
   "scripts": {
     "build": "babel-node ./node_modules/webpack/bin/webpack",
     "dev:server": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server --open",
-    "start": "export NODE_ENV=production && babel-node  ./node_modules/webpack-dev-server/bin/webpack-dev-server",
+    "start": "node server.js",
     "test": "export NODE_ENV=test && jest --coverage",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d dist",
