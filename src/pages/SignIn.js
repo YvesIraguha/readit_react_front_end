@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
-import { logIn } from '../redux/actions/loginActions';
-import Input from '../components/common/Input';
-import { connect } from 'react-redux';
-const mapDispatchToProps = dispatch => ({
-  signIn: user => dispatch(logIn(user))
-});
-class SignIn extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+import React, { Component } from "react";
+import { logIn as signIn } from "../redux/actions/loginActions";
+import Input from "../components/common/Input";
+import Validator from "../utils/validator";
+import { connect } from "react-redux";
+
+export class SignIn extends Component {
+  state = {
+    email: "",
+    password: "",
+    error: "",
+    isSubmitting: this.props.isSubmitting
+  };
 
   onInputChange(event) {
     const { name, value } = event.target;
@@ -18,35 +19,40 @@ class SignIn extends Component {
   submitLoginCredentials() {
     const { email, password } = this.state;
     const { signIn } = this.props;
+    const error = Validator.signUp({ email, password });
+    if (error) {
+      return this.displayError("Invalid email or password");
+    }
     signIn({ email, password });
   }
+  displayError(error) {
+    this.setState({ error });
+    setTimeout(() => {
+      this.setState({ error: "" });
+    }, 3000);
+  }
+
   render() {
+    const { email, password, error } = this.state;
     return (
       <div>
+        {error.length > 12 ? <div className="error">{error}</div> : false}
         <div className="container">
           <div className="card">
             <div className="email sign_up">
-              <img
-                src={require('../assets/icons/email.svg')}
-                alt="Email"
-                className="icon"
-              />
               <Input
                 type="email"
                 name="email"
+                value={email}
                 placeholder="Email ..."
                 onChange={e => this.onInputChange(e)}
               />
             </div>
             <div className="password sign_up">
-              <img
-                src={require('../assets/icons/locked.svg')}
-                alt="password"
-                className="icon"
-              />
               <Input
                 type="password"
                 name="password"
+                value={password}
                 placeholder="Password ..."
                 onChange={e => this.onInputChange(e)}
               />
@@ -66,5 +72,5 @@ class SignIn extends Component {
 
 export default connect(
   null,
-  mapDispatchToProps
+  { signIn }
 )(SignIn);

@@ -1,4 +1,5 @@
-import http from '../../utils/axios';
+import http from "../../utils/axios";
+import "@babel/polyfill";
 import {
   NEW_ARTICLE,
   SUBMITTING_ARTICLE,
@@ -8,7 +9,7 @@ import {
   ARTICLES_FOUND,
   ARTICLE_UPDATED,
   ARTICLE_ERROR
-} from '../actionTypes';
+} from "../actionTypes";
 
 export const submittingArticle = () => ({
   type: SUBMITTING_ARTICLE
@@ -17,7 +18,7 @@ export const submittingArticle = () => ({
 export const createArticle = article => async dispatch => {
   try {
     dispatch(submittingArticle());
-    const response = await http.post('/posts', {
+    const response = await http.post("/posts", {
       ...article
     });
     dispatch({ type: NEW_ARTICLE, payload: response.data });
@@ -64,7 +65,7 @@ export const fetchingArticle = slug => async dispatch => {
     const response = await http.get(`/posts/${slug}`);
     dispatch({ type: ARTICLE_FOUND, payload: response.data });
   } catch (error) {
-    const { message } = error.response.data;
+    const message = error.response.data;
     dispatch({
       type: ARTICLE_ERROR,
       payload: message

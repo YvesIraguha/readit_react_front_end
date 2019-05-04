@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`article card should render article card correctly 1`] = `
+<div
+  className="main-article"
+  onClick={[Function]}
+>
+  <h1>
+    hello world
+  </h1>
+  hello world
+</div>
+`;

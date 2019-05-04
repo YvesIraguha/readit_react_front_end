@@ -1,9 +1,10 @@
 
-
-.env 
-
 # Created by https://www.gitignore.io/api/node
 # Edit at https://www.gitignore.io/?templates=node
+
+# ignore snapshots
+__tests__/**/__snapshots__
+
 
 ### Node ###
 # Logs
