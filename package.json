@@ -20,7 +20,8 @@
   },
   "scripts": {
     "webpack": "babel-node ./node_modules/webpack/bin/webpack",
-    "start": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server --open",
+    "dev:server": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server --open",
+    "start": "export NODE_ENV=production && babel-node  ./node_modules/webpack-dev-server/bin/webpack-dev-server",
     "test": "export NODE_ENV=test && jest --coverage",
     "test:u": "jest --coverage -u",
     "coveralls": "cat /coverage/lcov.info | coveralls"
