@@ -76,9 +76,7 @@ export const fetchingArticle = slug => async dispatch => {
 export const fetchAllArticles = () => async dispatch => {
   try {
     dispatch({ type: FETCHING_ARTICLE });
-    console.log("ttrying to fetch all articles");
     const response = await http.get(`/posts`);
-    console.log("ttrying to fetch all articles", response);
     dispatch({ type: ARTICLES_FOUND, payload: response.data.posts });
   } catch (error) {
     const { message } = error.response.data;

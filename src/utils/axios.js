@@ -4,7 +4,7 @@ dotenv.config();
 
 const token = localStorage.getItem("token");
 const baseURL = process.env.BASE_URL;
-
+console.log("tyring to fetch some data", baseURL);
 const http = axios.create({
   baseURL,
   headers: {
