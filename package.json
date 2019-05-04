@@ -39,7 +39,6 @@
     "redux-devtools-extension": "^2.13.8"
   },
   "devDependencies": {
-    "dotenv": "8.0.0",
     "@babel/core": "7.4.3",
     "@babel/node": "7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
@@ -51,6 +50,7 @@
     "babel-loader": "^8.0.5",
     "coveralls": "^3.0.3",
     "css-loader": "^2.1.1",
+    "dotenv": "^8.0.0",
     "dotenv-webpack": "^1.7.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
